@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (shouldShowRequestPermissionRationale(android.Manifest.permission.READ_PHONE_STATE)) {
                     Log.d("humanqp", "shouldShowRequestPermissionRationale in Code");
-                    // 다이어로그같은것을 띄워서 사용자에게 해당 권한이 필요한 이유에 대해 설명합니다
-                    // 해당 설명이 끝난뒤 requestPermissions()함수를 호출하여 권한허가를 요청해야 합니다
+                    // 다이어로그같은것을 띄워서 사용자에게 해당 권한이 필요한 이유에 대해 설명합니다.
+                    // 해당 설명이 끝난뒤 requestPermissions()함수를 호출하여 권한허가를 요청해야 합니다.
 
                 }
 
