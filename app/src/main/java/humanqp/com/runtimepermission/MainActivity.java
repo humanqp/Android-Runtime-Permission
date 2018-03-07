@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public String getUniqueID(Context context) {
         final TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
-        String tmDevice = "", tmSerial = "", androidId = "";
+        String tmDevice = "", tmSerial = "", tmPhoneNumber = "", androidId = "";
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
             }else {
                 tmDevice = "" + tm.getDeviceId();
                 tmSerial = "" + tm.getSimSerialNumber();
+                tmPhoneNumber = tm.getLine1Number();
+                tmPhoneNumber = tmPhoneNumber.replace("+82", "0");
                 androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
             }
 
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
             tmDevice = "" + tm.getDeviceId();
             tmSerial = "" + tm.getSimSerialNumber();
+            tmPhoneNumber = tm.getLine1Number();
+            tmPhoneNumber = tmPhoneNumber.replace("+82", "0");
             androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
 
         }
